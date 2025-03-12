@@ -18,7 +18,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use("/api/auth", router);
+app.use("/api", router);
 
 // 👇️ Handle uncaught exceptions
 process.on('uncaughtException', function (err) {
@@ -29,6 +29,7 @@ process.on('uncaughtException', function (err) {
 
 connectDB().then(() => {
     app.listen(PORT, () => {
-        console.log(`Server is running at : http://localhost:${PORT}/api/auth`)
+        console.log(`Server running on port ${PORT}`);
+        // console.log(`Server is running at : http://localhost:${PORT}/api/auth`)
     })
 })
